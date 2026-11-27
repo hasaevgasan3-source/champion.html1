@@ -1,1 +1,273 @@
-# champion.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Учебный сайт с практическими заданиями по HTML и CSS.">
+  <title>HTML Практикум — учимся создавать сайты</title>
+  <style>
+    :root {
+      --bg: #f3f3f3;
+      --panel: #fff;
+      --ink: #111;
+      --muted: #666;
+      --accent: #111;
+      --accent2: #555;
+      --line: #d8d8d8;
+      --code: #111;
+      --shadow: 0 10px 28px rgba(0,0,0,.06);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font: 16px/1.65 system-ui, -apple-system, Segoe UI, sans-serif; color: var(--ink); background: var(--bg); }
+    a { color: #111; }
+    .topbar { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+    .nav { max-width: 1120px; margin: auto; padding: 13px 22px; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+    .brand { font-weight: 850; letter-spacing: -.5px; color: var(--ink); text-decoration: none; }
+    .brand span { color: #777; }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 17px; }
+    .navlinks a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .navlinks a:hover { color: #000; text-decoration: underline; }
+    .hero { background: linear-gradient(120deg, #050505, #444); color: white; }
+    .hero-inner { max-width: 1120px; margin: auto; padding: 76px 22px 80px; }
+    .eyebrow { color: #d0d0d0; text-transform: uppercase; font-size: .78rem; letter-spacing: 2px; font-weight: 700; }
+    h1 { font-size: clamp(2.3rem,6vw,4.4rem); line-height: 1.08; max-width: 760px; margin: 16px 0; letter-spacing: -2px; }
+    .hero p { max-width: 660px; color: #e5e5e5; font-size: 1.12rem; }
+    .button { display: inline-block; background: white; color: #111; border: 1px solid #fff; border-radius: 12px; padding: 12px 19px; font-weight: 750; text-decoration: none; margin-top: 15px; }
+    .button:hover { background: #e8e8e8; }
+    main { max-width: 1120px; margin: auto; padding: 48px 22px 80px; }
+    .intro { display: grid; grid-template-columns: 1.3fr .7fr; gap: 22px; margin-bottom: 42px; }
+    .card, .lesson { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 25px; box-shadow: var(--shadow); }
+    h2 { font-size: 1.8rem; letter-spacing: -.7px; margin: 0 0 12px; }
+    h3 { margin: 0 0 8px; }
+    .muted { color: var(--muted); }
+    .pill { display: inline-block; padding: 4px 10px; background: #ededed; color: #222; border-radius: 30px; font-size: .78rem; font-weight: 700; margin-bottom: 10px; }
+    .progress-wrap { background: #e5e5e5; border-radius: 20px; height: 10px; overflow: hidden; margin: 12px 0 6px; }
+    #progress { height: 100%; width: 0; background: linear-gradient(90deg, #222, #888); transition: width .25s; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin: 45px 0 18px; }
+    .grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .lesson { box-shadow: none; }
+    .lesson p { color: var(--muted); margin: 6px 0 13px; }
+    .task { background: #f5f5f5; border-left: 3px solid #555; padding: 13px 15px; border-radius: 8px; margin: 12px 0; }
+    pre { background: var(--code); color: #f0f0f0; padding: 16px; overflow-x: auto; border-radius: 12px; font-size: .88rem; line-height: 1.55; }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .done { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; cursor: pointer; }
+    .done input { width: 17px; height: 17px; accent-color: #222; }
+    .tip { background: #ededed; border: 1px solid #d5d5d5; padding: 17px 20px; border-radius: 14px; margin: 28px 0; }
+    .source { font-size: .9rem; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 25px 22px; text-align: center; color: var(--muted); background: #fff; }
+    @media (max-width: 760px) { .intro,.grid { grid-template-columns: 1fr; } .nav { align-items: flex-start; flex-direction: column; } .hero-inner { padding-top: 55px; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#">HTML<span>.</span>Практикум</a>
+      <div class="navlinks">
+        <a href="#about">О проекте</a><a href="#lessons">Задания</a><a href="#help">Как работать</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Учебный проект · HTML и CSS</div>
+      <h1>Создавай веб‑страницы шаг за шагом</h1>
+      <p>Практические упражнения по основным темам HTML: от форматирования текста до таблиц, ссылок и форм. Выполняй задания, отмечай прогресс и собирай собственный мини‑сайт.</p>
+      <a class="button" href="#lessons">Перейти к заданиям ↓</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="intro" id="about">
+      <div class="card">
+        <span class="pill">О проекте</span>
+        <h2>Тренажёр по веб‑разработке</h2>
+        <p>Этот сайт создан для самостоятельной практики. Темы и последовательность ориентированы на содержание книги Дмитрия Кудреца «Практикум по HTML». Формулировки ниже — самостоятельные учебные упражнения, а не копия текста книги.</p>
+        <p class="muted">Для выполнения заданий создай папку проекта и файл <code>index.html</code>. Открывай его в браузере после каждого изменения.</p>
+      </div>
+      <aside class="card">
+        <span class="pill">Твой прогресс</span>
+        <h2><span id="count">0</span> / 10</h2>
+        <div class="progress-wrap"><div id="progress"></div></div>
+        <p class="muted">Отмечай выполненные темы — прогресс сохранится в этом браузере.</p>
+      </aside>
+    </section>
+
+    <div class="section-head" id="lessons">
+      <div><span class="pill">Практическая часть</span><h2>Задания по темам</h2></div>
+      <span class="muted">10 учебных блоков</span>
+    </div>
+
+    <section class="grid">
+      <article class="lesson">
+        <span class="pill">Тема 01</span><h3>Оформление текста</h3>
+        <p>Заголовки, абзацы, переносы строк и выделение фрагментов.</p>
+        <div class="task"><b>Задание:</b> создай страницу о любимой книге. Добавь главный заголовок, два подзаголовка, три абзаца и выдели важную мысль полужирным.</div>
+        <pre><code>&lt;h1&gt;Моя любимая книга&lt;/h1&gt;
+&lt;h2&gt;О чём она&lt;/h2&gt;
+&lt;p&gt;Краткое описание книги.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Главная мысль&lt;/strong&gt; — пример.&lt;/p&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="1"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 02</span><h3>Списки</h3>
+        <p>Маркированные и нумерованные перечни.</p>
+        <div class="task"><b>Задание:</b> оформи список из пяти предметов школьного расписания и нумерованный список из четырёх шагов подготовки к уроку.</div>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;Информатика&lt;/li&gt;
+  &lt;li&gt;Математика&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;Открыть тетрадь&lt;/li&gt;
+  &lt;li&gt;Подготовить учебник&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="2"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 03</span><h3>Изображения</h3>
+        <p>Добавление картинок и альтернативного описания.</p>
+        <div class="task"><b>Задание:</b> добавь на страницу изображение по теме своего проекта. Сохрани картинку в папку <code>images</code> и укажи понятный текст в атрибуте <code>alt</code>.</div>
+        <pre><code>&lt;img src="images/photo.jpg"
+     alt="Пейзаж летнего парка"
+     width="500"&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="3"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 04</span><h3>Таблицы</h3>
+        <p>Строки, ячейки и заголовки таблицы.</p>
+        <div class="task"><b>Задание:</b> составь таблицу расписания на три дня. Добавь строку заголовков и не менее трёх строк с данными.</div>
+        <pre><code>&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;День&lt;/th&gt;&lt;th&gt;Урок&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Понедельник&lt;/td&gt;
+      &lt;td&gt;HTML&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="4"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 05</span><h3>Гиперссылки</h3>
+        <p>Переходы между страницами и на внешние ресурсы.</p>
+        <div class="task"><b>Задание:</b> создай меню из трёх ссылок на разделы своей страницы. Добавь одну ссылку на полезный учебный ресурс.</div>
+        <pre><code>&lt;a href="#about"&gt;О проекте&lt;/a&gt;
+&lt;a href="#contacts"&gt;Контакты&lt;/a&gt;
+&lt;a href="https://developer.mozilla.org/"
+   target="_blank"&gt;Справочник HTML&lt;/a&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="5"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 06</span><h3>Формы</h3>
+        <p>Поля ввода, подписи, переключатели и кнопки.</p>
+        <div class="task"><b>Задание:</b> сделай форму обратной связи с полем имени, адресом электронной почты, выпадающим списком темы и кнопкой отправки. Пока достаточно внешнего вида формы.</div>
+        <pre><code>&lt;form&gt;
+  &lt;label&gt;Имя:
+    &lt;input type="text" name="name"&gt;
+  &lt;/label&gt;
+  &lt;label&gt;Сообщение:
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+  &lt;/label&gt;
+  &lt;button type="submit"&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="6"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 07</span><h3>Встроенные области</h3>
+        <p>Встраивание отдельного документа с помощью iframe.</p>
+        <div class="task"><b>Задание:</b> изучи назначение <code>iframe</code>. Создай демонстрационный блок с поясняющим текстом; используй только тот внешний документ, который разрешено встраивать.</div>
+        <pre><code>&lt;iframe
+  src="about:blank"
+  title="Демонстрационная область"
+  width="100%" height="180"&gt;
+&lt;/iframe&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="7"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 08</span><h3>Расположение элементов</h3>
+        <p>Блочная модель, отступы и Flexbox.</p>
+        <div class="task"><b>Задание:</b> размести три карточки в один ряд на широком экране. На узком экране карточки должны располагаться друг под другом.</div>
+        <pre><code>.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.card-item {
+  flex: 1 1 200px;
+  padding: 20px;
+}</code></pre>
+        <label class="done"><input type="checkbox" data-task="8"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 09</span><h3>CSS-оформление</h3>
+        <p>Цвета, шрифты, границы и состояния элементов.</p>
+        <div class="task"><b>Задание:</b> оформи страницу в единой цветовой гамме. Задай фон, основной шрифт, цвет заголовков, скругление карточек и эффект при наведении на ссылку.</div>
+        <pre><code>body {
+  font-family: Arial, sans-serif;
+  background: #f3f6fb;
+}
+h1 { color: #3448a5; }
+a:hover { text-decoration: underline; }</code></pre>
+        <label class="done"><input type="checkbox" data-task="9"> Задание выполнено</label>
+      </article>
+
+      <article class="lesson">
+        <span class="pill">Тема 10</span><h3>Итоговый мини‑проект</h3>
+        <p>Объединение изученных элементов в одном сайте.</p>
+        <div class="task"><b>Задание:</b> создай небольшой сайт о своём увлечении. На нём должны быть заголовки, текст, список, изображение, таблица, навигационные ссылки и форма.</div>
+        <pre><code>&lt;header&gt;Название сайта и меню&lt;/header&gt;
+&lt;main&gt;
+  &lt;section&gt;О моём увлечении&lt;/section&gt;
+  &lt;section&gt;Галерея и таблица&lt;/section&gt;
+  &lt;section&gt;Форма связи&lt;/section&gt;
+&lt;/main&gt;
+&lt;footer&gt;Учебный проект&lt;/footer&gt;</code></pre>
+        <label class="done"><input type="checkbox" data-task="10"> Задание выполнено</label>
+      </article>
+    </section>
+
+    <section class="tip" id="help">
+      <h3>Как пользоваться практикумом</h3>
+      <ol>
+        <li>Создай папку для проекта и файл <code>index.html</code>.</li>
+        <li>Выбери тему и напиши собственный HTML-код в редакторе.</li>
+        <li>Сохрани файл и открой его в браузере, чтобы проверить результат.</li>
+        <li>Исправь ошибки и отметь задание выполненным.</li>
+      </ol>
+      <p><b>Важно:</b> HTML отвечает за структуру страницы, CSS — за её оформление. Для настоящей отправки данных из формы дополнительно нужен сервер или специальный сервис.</p>
+    </section>
+
+    <section class="card">
+      <span class="pill">Источник и авторство</span>
+      <h2>По мотивам учебного пособия</h2>
+      <p>Дмитрий Кудрец. <i>Практикум по HTML</i>, 2018. ISBN 978-5-4496-0428-6.</p>
+      <p class="source">Темы практикума использованы как ориентир для структуры сайта. Задания и примеры кода на этой странице составлены заново и не являются воспроизведением книги.</p>
+      <p><a href="https://www.sumina-yuliya.ru/dokument_sait/knigi/Praktikum_po_HTML_2019.pdf" target="_blank" rel="noopener">Открыть PDF пособия</a> · <a href="https://books.yandex.ru/books/l45F2OsP/read-online" target="_blank" rel="noopener">Страница книги в Яндекс Книгах</a></p>
+    </section>
+  </main>
+
+  <footer>Учебный сайт по HTML · Создан для практики веб‑разработки</footer>
+
+  <script>
+    const checks = [...document.querySelectorAll('[data-task]')];
+    const key = 'html-practicum-progress-v1';
+    function updateProgress() {
+      const done = checks.filter(c => c.checked).length;
+      document.getElementById('count').textContent = done;
+      document.getElementById('progress').style.width = (done / checks.length * 100) + '%';
+      localStorage.setItem(key, JSON.stringify(checks.filter(c => c.checked).map(c => c.dataset.task)));
+    }
+    const saved = JSON.parse(localStorage.getItem(key) || '[]');
+    checks.forEach(c => {
+      c.checked = saved.includes(c.dataset.task);
+      c.addEventListener('change', updateProgress);
+    });
+    updateProgress();
+  </script>
+</body>
+</html>
